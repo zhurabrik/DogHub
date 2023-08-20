@@ -1,0 +1,5 @@
+aiohttp==3.8.1
+ConfigArgParse==1.5.3
+Pillow==10.0.0
+sqlalchemy==2.0.2
+asyncpg==0.28.0
