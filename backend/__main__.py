@@ -1,6 +1,7 @@
 import os
 import logging
 
+import aiohttp_cors
 from aiohttp import web
 from configargparse import Namespace
 from functools import partial
@@ -38,6 +39,20 @@ def create_app(args: Namespace) -> web.Application:
     app = web.Application(middlewares=[logging_middleware, error_middleware])
     app.add_routes(routes)
     app.cleanup_ctx.append(partial(db_engine, args=args))
+
+    cors = aiohttp_cors.setup(
+        app,
+        defaults={
+            "*": aiohttp_cors.ResourceOptions(  # TODO change to specific adresses
+                allow_credentials=True,
+                expose_headers="*",
+                allow_headers="*",
+            )
+        },
+    )
+    for route in list(app.router.routes()):
+        cors.add(route, webview=True)
+
     return app
 
 
