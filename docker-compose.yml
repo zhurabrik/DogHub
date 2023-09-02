@@ -6,6 +6,12 @@ services:
       - 8080:8080
     depends_on:
       - postgres
+    environment:
+      - PD_DB_NAME=${PD_DB_NAME}
+      - PD_DB_PORT=${PD_DB_PORT}
+      - PD_DB_USER=${PD_DB_USER}
+      - PD_DB_HOST=${PD_DB_HOST}
+      - PD_DB_PASSWORD=${PD_DB_PASSWORD}
 
   postgres:
     image: postgres:11
