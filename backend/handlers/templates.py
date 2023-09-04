@@ -36,7 +36,7 @@ async def get_template(request: web.Request):
     if template is None:
         raise web.HTTPNotFound(text="template not found")
 
-    return web.Response(
+    return web.json_response(
         body=format_template(template),
         status=web.HTTPOk.status_code,
     )
