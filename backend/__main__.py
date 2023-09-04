@@ -1,10 +1,11 @@
-import os
+from functools import partial
 import logging
+import os
+import ssl
 
 import aiohttp_cors
 from aiohttp import web
 from configargparse import Namespace
-from functools import partial
 from sqlalchemy.ext.asyncio import create_async_engine
 
 from backend.handlers import routes
@@ -59,10 +60,15 @@ def create_app(args: Namespace) -> web.Application:
 def main():
     args = parse_args()
     app = create_app(args)
-
+    # TODO
+    # ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+    # ssl_context.load_cert_chain(
+    #     certfile=args.ssl_cert, keyfile=args.ssl_key, password=args.ssl_password
+    # )
     web.run_app(
         app,
         port=args.port,
+        # ssl_context=ssl_context TODO
     )
 
 

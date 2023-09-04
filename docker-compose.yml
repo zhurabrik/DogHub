@@ -4,27 +4,10 @@ services:
     build: .
     ports:
       - 8080:8080
-    depends_on:
-      - postgres
     environment:
       - PD_DB_NAME=${PD_DB_NAME}
       - PD_DB_PORT=${PD_DB_PORT}
       - PD_DB_USER=${PD_DB_USER}
       - PD_DB_HOST=${PD_DB_HOST}
       - PD_DB_PASSWORD=${PD_DB_PASSWORD}
-
-  postgres:
-    image: postgres:11
-    container_name: database
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-      - ./backend/db/migrations/001_initial.sql:/docker-entrypoint-initdb.d/001_initial.sql
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=db
-    ports:
-      - 5432:5432
-
-volumes:
-  postgres_data:
+      - PD_SSL_PASSWORD=${PD_SSL_PASSWORD}
