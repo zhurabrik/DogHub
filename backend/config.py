@@ -31,10 +31,17 @@ def setup_args_parser() -> ArgumentParser:
     api_group.add_argument(
         "--log-sql", action="store_true", help="log SQL queries"
     )
+
     # TODO
-    # api_group.add_argument("--ssl-cert", type=str, default="/ssl/cert.pem", help="SSL certificate")
-    # api_group.add_argument("--ssl-key", type=str, default="/ssl/key.pem", help="SSL key")
-    # api_group.add_argument("--ssl-password", type=str, default="dose-chip", help="SSL password")
+    # api_group.add_argument(
+    #     "--ssl-cert", type=str, default="/ssl/cert.pem", help="SSL certificate"
+    # )
+    # api_group.add_argument(
+    #     "--ssl-key", type=str, default="/ssl/key.pem", help="SSL key"
+    # )
+    # api_group.add_argument(
+    #     "--ssl-password", type=str, default="dose-chip", help="SSL password"
+    # )
 
     db_group = parser.add_argument_group("Database")
     db_group.add_argument(

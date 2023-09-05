@@ -20,7 +20,6 @@ setup(
     entry_points={
         "console_scripts": [
             "dogshub-api = backend.__main__:main",
-            # "discounts-db = backend.db.make_migrations:main", TODO
         ]
     },
 )

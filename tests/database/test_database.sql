@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS templates (
   meta JSONB NOT NULL
 );
 
+
 INSERT INTO templates (meta) values
 ('{
   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
