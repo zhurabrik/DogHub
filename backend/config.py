@@ -31,6 +31,7 @@ def setup_args_parser() -> ArgumentParser:
     api_group.add_argument(
         "--log-sql", action="store_true", help="log SQL queries"
     )
+    api_group.add_argument("--ip_frontend", type=str, default="localhost", help="IP frontend")
 
     # TODO
     # api_group.add_argument(

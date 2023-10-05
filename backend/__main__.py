@@ -44,7 +44,7 @@ def create_app(args: Namespace) -> web.Application:
     cors = aiohttp_cors.setup(
         app,
         defaults={
-            "*": aiohttp_cors.ResourceOptions(  # TODO change to specific adresses
+            args.ip_frontend: aiohttp_cors.ResourceOptions(
                 allow_credentials=True,
                 expose_headers="*",
                 allow_headers="*",
