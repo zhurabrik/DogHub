@@ -10,4 +10,3 @@ services:
       - PD_DB_USER=${PD_DB_USER}
       - PD_DB_HOST=${PD_DB_HOST}
       - PD_DB_PASSWORD=${PD_DB_PASSWORD}
-      - PD_SSL_PASSWORD=${PD_SSL_PASSWORD}
